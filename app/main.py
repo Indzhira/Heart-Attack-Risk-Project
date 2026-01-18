@@ -49,7 +49,7 @@ async def upload_csv(request: Request, file: UploadFile = File(...)):
 @app.get("/download")
 def predictions_download():
     return FileResponse(
-        path="predictions\predictions.csv",
+        path="predictions/predictions.csv",
         filename="heart_attack_risk_prediction.csv",
         media_type="text/csv"
     )

@@ -28,24 +28,18 @@ app - приложение
 **Инструкция по запуску приложения:**
 
 1. Клонируйте репозиторий:
-   *git clone https://github.com/Indzhira/Heart-Attack-Risk-Project.git*
-2. Создайте виртуальное окружение
-   *conda create -n heart\_attack\_risk python-multipart*
-3. Активируйте виртуальное окружение
-   *conda activate heart\_attack\_risk*
-4. Перейдите в папку проекта
-   *cd heart\_attack\_risk\_project\\app*
-5. Установите зависимости
-   *pip install -r requirements.txt*
-6. Запустите приложение
+   git clone https://github.com/Indzhira/Heart-Attack-Risk-Project.git
+2. Создайте виртуальное окружение:
+   conda create -n heart\_app python-multipart
+3. Активируйте виртуальное окружение:
+   conda activate heart\_app
+4. Перейдите в папку проекта:
+   cd Heart-Attack-Risk-Project\\app
+5. Установите зависимости:
+   pip install -r requirements.txt
+6. Запустите приложение:
 
-   *uvicorn main:app --reload*
+   uvicorn main:app --reload
 
-
-
-7\. Перейдите по ссылке http://127.0.0.1:8000
-
-
-
-8\. Загрузите SCV-файл с данными пациентов и получите результат
-
+7. Перейдите по ссылке http://127.0.0.1:8000
+8. Загрузите SCV-файл с данными пациентов и получите результат

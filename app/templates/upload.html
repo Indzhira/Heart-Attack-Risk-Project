@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Attack Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h3 {
+            color: #555;
+            margin-top: 20px;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .risk-low {
+            color: #2e7d32;
+        }
+        .risk-high {
+            color: #c62828;
+        }
+        .download-btn {
+            background: #1976d2;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Heart Attack Risk Prediction</h1>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <h3>Загрузите CSV-файл с данными пациентов</h3>
+        <input type="file" name="file" accept=".csv" required>
+        <button type="submit">Предсказать</button>
+    </form>
+
+    {% if predictions %}
+        <div>
+            <h3>Результаты предсказаний</h3>
+            
+            <p><strong>Пояснение:</strong></p>
+            <p><span class="risk-low">0 — низкий риск сердечного приступа</span></p>
+            <p><span class="risk-high">1 — высокий риск сердечного приступа</span></p>
+
+            <form action="/download" method="get">
+                <button type="submit" class="download-btn">Скачать результаты</button>
+            </form>
+
+            <table>
+                <tr>
+                    <th>ID пациента</th>
+                    <th>Предсказание</th>
+                </tr>
+                {% for row in predictions %}
+                <tr>
+                    <td>{{ row.id }}</td>
+                    <td>
+                        {% if row.prediction == 0 %}
+                            <span class="risk-low">0 — низкий риск</span>
+                        {% else %}
+                            <span class="risk-high">1 — высокий риск</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endif %}
+</body>
+</html>

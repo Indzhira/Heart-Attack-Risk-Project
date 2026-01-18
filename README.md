@@ -28,7 +28,7 @@ app - приложение
 **Инструкция по запуску приложения:**
 
 1. Клонируйте репозиторий:
-   *git clone https://github.com/.git*
+   *git clone https://github.com/Indzhira/Heart-Attack-Risk-Project.git*
 2. Создайте виртуальное окружение
    *conda create -n heart\_attack\_risk python-multipart*
 3. Активируйте виртуальное окружение
@@ -39,7 +39,7 @@ app - приложение
    *pip install -r requirements.txt*
 6. Запустите приложение
 
-   *uvicorn main:app --host 0.0.0.0 --port 8000*
+   *uvicorn main:app --reload*
 
 
 
